@@ -1,0 +1,29 @@
+{
+  "name": "capacitor-audio-player-demo",
+  "version": "1.0.0",
+  "description": "Capacitor Audio Player demo app",
+  "keywords": [
+    "capacitor",
+    "capawesome",
+    "audio-player",
+    "demo"
+  ],
+  "author": "Capawesome Team",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0",
+    "@capawesome-team/capacitor-audio-player": "^8.4.0"
+  }
+}

@@ -1,0 +1,255 @@
+:root {
+  --accent: #6d28d9;
+  --accent-dark: #5b21b6;
+  --bg: #f0eef5;
+  --card-bg: #ffffff;
+  --text: #1c1a27;
+  --text-muted: #79758c;
+  --border: #ece9f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  accent-color: var(--accent);
+}
+
+.player {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: calc(28px + env(safe-area-inset-top)) 20px
+    calc(40px + env(safe-area-inset-bottom));
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(28, 26, 39, 0.04), 0 16px 32px rgba(28, 26, 39, 0.08);
+  text-align: center;
+}
+
+.artwork {
+  width: 176px;
+  height: 176px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(28, 26, 39, 0.18);
+  margin-bottom: 18px;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.track-artist {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 3px 0 22px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.progress input[type='range'] {
+  flex: 1;
+}
+
+input[type='range'] {
+  height: 20px;
+}
+
+.transport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.transport button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+#play-pause {
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background: linear-gradient(160deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 10px 20px rgba(109, 40, 217, 0.35);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.control-row input[type='range'] {
+  flex: 1;
+}
+
+.speed-options {
+  display: flex;
+  flex: 1;
+  padding: 3px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.speed-options button {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.speed-options button.active {
+  background: var(--card-bg);
+  color: var(--accent);
+  box-shadow: 0 1px 4px rgba(28, 26, 39, 0.12);
+}
+
+.loop-toggle {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  margin-left: auto;
+}
+
+.switch input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switch-track {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.switch-track::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(28, 26, 39, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.switch input:checked + .switch-track {
+  background: var(--accent);
+}
+
+.switch input:checked + .switch-track::before {
+  transform: translateX(16px);
+}
+
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  margin: 28px 4px 10px;
+}
+
+.track-list {
+  list-style: none;
+  counter-reset: track;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.track-list li {
+  counter-increment: track;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.track-list li::before {
+  content: counter(track);
+  min-width: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.track-list li.active {
+  background: #f2ebfc;
+  background: color-mix(in srgb, var(--accent) 10%, var(--card-bg));
+  color: var(--accent);
+}
+
+.track-list li.active::before {
+  color: var(--accent);
+}

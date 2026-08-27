@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Music Player Lab</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="player">
+      <p class="eyebrow">Music Player Lab</p>
+
+      <div class="card">
+        <img id="artwork" class="artwork" src="" alt="Album artwork" />
+
+        <p id="track-title" class="track-title">—</p>
+        <p id="track-artist" class="track-artist">—</p>
+
+        <div class="progress">
+          <span id="current-time">0:00</span>
+          <input id="seek" type="range" min="0" max="1000" value="0" />
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="transport">
+          <button id="previous" aria-label="Previous track">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6 6h2v12H6zM20 6L10 12l10 6z"/></svg>
+          </button>
+          <button id="play-pause" aria-label="Play">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button id="next" aria-label="Next track">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 6h2v12h-2zM4 6l10 6-10 6z"/></svg>
+          </button>
+        </div>
+
+        <div class="control-row">
+          <label for="volume">Player volume</label>
+          <input id="volume" type="range" min="0" max="100" value="100" />
+        </div>
+
+        <div class="control-row">
+          <span>Speed</span>
+          <div id="speed" class="speed-options">
+            <button data-rate="0.5">0.5x</button>
+            <button data-rate="1" class="active">1x</button>
+            <button data-rate="1.5">1.5x</button>
+            <button data-rate="2">2x</button>
+          </div>
+        </div>
+
+        <label class="control-row loop-toggle">
+          Loop
+          <span class="switch">
+            <input id="loop" type="checkbox" />
+            <span class="switch-track"></span>
+          </span>
+        </label>
+      </div>
+
+      <h2>Up next</h2>
+      <ul id="track-list" class="track-list"></ul>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
