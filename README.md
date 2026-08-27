@@ -58,6 +58,12 @@ $ npx cap run ios
 
 This project uses plain [Vite](https://vite.dev/) and vanilla JavaScript, without any UI framework.
 
+## Demo
+
+https://github.com/user-attachments/assets/7b872ee5-f3d9-493d-82b4-bd3a407ebf8b
+
+
+
 ## About Capawesome
 
 Capawesome builds professional, production-ready plugins and tools for mobile developers. Our mission is to make modern mobile app development easier, faster, and more reliable — without workarounds or hacks.
