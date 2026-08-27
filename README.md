@@ -12,13 +12,7 @@ The following plugins are included:
 
 ## Music
 
-The playlist uses 3 tracks, played from local web assets:
-
-- **Energetic Action Sport** — [Pixabay](https://pixabay.com/music/rock-energetic-action-sport-500409/)
-- **Vlog Hip-Hop** — [Pixabay](https://pixabay.com/music/beats-vlog-hip-hop-483574/)
-- **No Copyright Music** — [Pixabay](https://pixabay.com/music/future-bass-no-copyright-music-537751/)
-
-Used under the [Pixabay Content License](https://pixabay.com/service/license-summary/). See [`public/assets/audio/README.md`](public/assets/audio/README.md) for full attribution.
+The playlist uses 3 tracks, played from local web assets. See [`public/assets/audio/README.md`](public/assets/audio/README.md) for more information.
 
 ## Development 💻
 
