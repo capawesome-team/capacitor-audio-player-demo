@@ -9,21 +9,21 @@ import {
 // `metadata` per track activates the lock-screen media session.
 const TRACKS = [
   {
-    src: '/assets/audio/alexgrohl-energetic-action-sport-500409.mp3',
-    metadata: {
-      title: 'Energetic Action Sport',
-      artist: 'AlexGrohl',
-      album: 'Music Player Lab',
-      artworkSource: '/assets/thumbs/mmckein-surf-2363367.jpg',
-    },
-  },
-  {
     src: '/assets/audio/producesplatinum-vlog-hip-hop-483574.mp3',
     metadata: {
       title: 'Vlog Hip-Hop',
       artist: 'ProducesPlatinum',
       album: 'Music Player Lab',
       artworkSource: '/assets/thumbs/arttower-break-dance-7158738.jpg',
+    },
+  },
+  {
+    src: '/assets/audio/alexgrohl-energetic-action-sport-500409.mp3',
+    metadata: {
+      title: 'Energetic Action Sport',
+      artist: 'AlexGrohl',
+      album: 'Music Player Lab',
+      artworkSource: '/assets/thumbs/mmckein-surf-2363367.jpg',
     },
   },
   {
@@ -100,13 +100,7 @@ function setPlayingUi(playing) {
 }
 
 async function startPlayback() {
-  // Omit startIndex for track 0 — passing it explicitly broke lock-screen pause on
-  // some devices. See "Known Issues" in the README.
-  const options =
-    currentIndex === 0
-      ? { tracks: TRACKS }
-      : { tracks: TRACKS, startIndex: currentIndex };
-  await AudioPlayer.play(options);
+  await AudioPlayer.play({ tracks: TRACKS });
   hasStarted = true;
 }
 
@@ -154,12 +148,6 @@ seekEl.addEventListener('input', () => {
 seekEl.addEventListener('pointerup', async () => {
   const position = sliderValueToMs(seekEl.value);
   await AudioPlayer.seekTo({ position });
-  // seekTo() doesn't refresh the lock screen; pause+resume forces it back in sync
-  // (brief audible blip). See "Known Issues" in the README.
-  if (isPlaying) {
-    await AudioPlayer.pause();
-    await AudioPlayer.resume();
-  }
   isSeeking = false;
 });
 
